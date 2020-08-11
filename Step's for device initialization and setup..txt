@@ -1,0 +1,35 @@
+Step's to Initialize and setup "TMS320F28069M" Launchpad.
+
+1-Create "Code Composer Studio" project.
+
+2-Import "Header" and "Source" files to project.
+
+3-Configure "Compiler" and "Linker", Insert data shown into the properties window.
+
+4-Include "Header" file to main program.
+
+5-Call "InitSysCtrl" routine from "F2806x_sysctrl.c" file, which will perform various functions such as,
+ 
+  i-disable "disable WATCH DOG".
+
+  ii-Initialize "Oscillator clock's" and configure "PLL".
+
+  iii-Configure "Peripheral clock's".
+
+7-Call "memcpy" function to copy program from "Flash" to "Ram".
+
+8-Call "InitFlash" function to initialize "Flash Registers".
+
+9-Call "DINT" to disable interrupt.
+
+10-Call "InitPieCtrl" to initialize peripheral "Interrupt register's".
+
+11-Clear "IER" & "IFR".
+
+12-Call "InitPieVectTable" function for initialization of "PIE vector table".
+
+13-Call "EINT" & "ERTM" to enable interrupts.
+
+14-Target Configuration.
+
+15-Run program.
