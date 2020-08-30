@@ -1,0 +1,16 @@
+STEPS TO INITIALIZE PERIPHERAL INTERRUPTS
+
+1.Enable Clock of the Peripheral of interest.
+  (e.g:Timer 0).
+
+2.To Enable Peripheral clk for Timer 0 "SET" 8th bit of PCLKCR3 Register.
+
+3.To Enable Timer 0 interrupt "SET" bit 7th of PIE 1 group.
+
+4.To let "TIMER 0 "interrupt "CPU", "SET" INT 1 group interrupt enable bit of "IER" register   (i.e IER 0.0 bit). 
+
+5.Thus, this is Timer 0 specific peripheral interrupt enable steps there are some generic   routine steps which has to be followed specified on page 174 of Technical reference   manual and also ADD "F2806X_cputimer.c" file.
+
+
+
+
