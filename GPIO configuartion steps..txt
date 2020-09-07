@@ -1,0 +1,14 @@
+GPIO CONFIGURATION PROCEDURE
+
+1-Important Register's 
+   i. (GPAMUX1 ,GPAMUX2 ,GPBMUX1 ,GPBMUX2 ,AIOMUX1 ,GPACTRL ,GPBCTRL ,GPACTRL2 ,GPAQSEL1 ,GPAQSEL2 , GPBQSEL1 ,GPBQSEL2 ,GPADIR ,GPBDIR ,AIODIR ,GPAPUD ,GPBPUD ,GPADAT ,GPBDAT ,AIODAT ,GPASET ,GPACLEAR ,GPATOGGLE ,GPBSET ,GPBCLEAR ,GPBTOGGLE ,AIOSET ,AIOCLEAR ,AIOTOGGLE ,GPIOXINTnSEL).
+   ii. For further explanation of register's refer GPIO section of Technical reference Manual of TMS320F28069.
+
+2-Select GPIO as per operation to be performed such as single GPIO is mulltiplexed with different operation's such as  GPIO ,EPWM, SCI etc, Therefore assign appropriate value to GPAMUX1,GPAMUX2,GPBMUX1,GPBMUX2.
+
+3-Then decide direction as Input/Output using "DIR" if using as "GPIO" only.
+
+4-Set/Reset/Toggle pin if used as "GPIO".
+
+5-Enjoy.
+
