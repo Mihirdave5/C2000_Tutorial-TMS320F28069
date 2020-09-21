@@ -1,0 +1,50 @@
+ADC INITIALIZATION
+
+1-Enable ADC peripheral clock, 
+   (SysCtrlRegs.PCLKCR0.bit.ADCENCLK = 1;).
+
+2-Enable ADC peripheral interrupt.
+
+3-Enable ADC power module for ADC and it reference
+  (AdcRegs.ADCCTL1.bit.ADCBGPWD  = 1;
+  AdcRegs.ADCCTL1.bit.ADCREFPWD = 1;
+  AdcRegs.ADCCTL1.bit.ADCPWDN   = 1;
+  AdcRegs.ADCCTL1.bit.ADCREFSEL = 0; ).
+
+4-Enable ADC
+  (AdcRegs.ADCCTL1.bit.ADCENABLE = 1; ).
+
+5-Set CLKDIV2EN to normal "1"
+  (AdcRegs.ADCCTL2.bit.CLKDIV2EN = 1;).
+
+6-Wait for 1ms.
+
+7-Call self calibration function unit
+  (AdcOffsetSelfCal();).
+
+8-Enable group 1 interrupt
+  (PieCtrlRegs.PIEIER1.bit.INTx1 = 1;).
+
+9-Enable nooverlap mode
+  ( AdcRegs.ADCCTL2.bit.ADCNONOVERLAP = 1;).
+
+10-Set ADCINT before one cycle of adc result being latched to adcresult register
+  (AdcRegs.ADCCTL1.bit.INTPULSEPOS	= 1;).
+
+11-Enable interrupt
+  (AdcRegs.INTSEL1N2.bit.INT1E     = 1; ).
+
+12-Disable continuous mode
+  (AdcRegs.INTSEL1N2.bit.INT1CONT  = 0;).
+
+13-Enable action which will generate ADC interrupt
+  (AdcRegs.INTSEL1N2.bit.INT1SEL 	= 1;).
+
+14-Select channel
+  (AdcRegs.ADCSOC0CTL.bit.CHSEL 	= 4; ).
+
+15-Select trigger action for SOC
+  (AdcRegs.ADCSOC0CTL.bit.TRIGSEL 	= 5;).
+
+16-Set sampling window
+  (AdcRegs.ADCSOC1CTL.bit.ACQPS 	= 6;).
